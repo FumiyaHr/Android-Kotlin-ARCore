@@ -19,3 +19,9 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+# ARCore ProGuard rules
+-keep class com.google.ar.core.** { *; }
+-keep class com.google.ar.core.dependencies.** { *; }
+-keep class com.google.ar.core.services.** { *; }
+-keepnames class com.google.ar.core.** { *; }
