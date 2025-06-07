@@ -16,17 +16,9 @@ import com.fumiyahr.detectarplanesurfaces.ui.theme.DetectARPlaneSurfacesTheme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContent {
-            DetectARPlaneSurfacesTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
-            }
-        }
+        val intent = android.content.Intent(this, ARActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 }
 
