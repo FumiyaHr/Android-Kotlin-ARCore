@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId = "com.fumiyahr.detectarplanesurfaces"
-        minSdk = 33
+        minSdk = 31
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
@@ -37,10 +37,20 @@ android {
     buildFeatures {
         compose = true
     }
+    
+    configurations.implementation {
+        exclude(group = "com.intellij", module = "annotations")
+    }
 }
 
 dependencies {
-
+    // ARCore dependencies
+    implementation("com.google.ar:core:1.45.0")
+    
+    // OpenGL ES and rendering
+    implementation("de.javagl:obj:0.2.1")
+    
+    // Android core dependencies
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -49,6 +59,12 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    
+    // Traditional Android View components for OpenGL ES
+    implementation("androidx.appcompat:appcompat:1.6.1")
+    implementation("com.google.android.material:material:1.11.0")
+    
+    // Test dependencies
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
